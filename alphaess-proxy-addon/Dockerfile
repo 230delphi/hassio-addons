@@ -2,16 +2,17 @@
 ARG BUILD_FROM
 FROM $BUILD_FROM
 
-ENV LANG C.UTF-8
 LABEL maintainer="230delphi@gmail.com"
+ENV LANG C.UTF-8
 
+# Setup base
+RUN apk add --no-cache git go
 
-#ENV SQUID_VERSION=5.0 \
-#    SQUID_CACHE_DIR=/var/spool/squid \
-#    SQUID_LOG_DIR=/var/log/squid \
-#    SQUID_USER=proxy
-
-#RUN apk add --no-cache golang
+# Configure Go
+ENV GOROOT /usr/lib/go
+ENV GOPATH /go
+ENV PATH /go/bin:$PATH
+RUN mkdir -p ${GOPATH}/src ${GOPATH}/bin
 
 #COPY entrypoint.sh /sbin/entrypoint.sh
 #RUN chmod 755 /sbin/entrypoint.sh

@@ -1,9 +1,13 @@
 #!/usr/bin/with-contenv bashio
+bashio::log.error "Starting run.sh..."
 git clone https://github.com/230delphi/alphaess-to-mqtt/
+
+bashio::log.error "Building project..."
 cd alphaess-to-mqtt
 go build *.go
-CONFIG="alphaESS-proxy.conf"
 
+bashio::log.error "Creating Config..."
+CONFIG="alphaESS-proxy.conf"
 {
     echo "l=${ProxyIPPort}";
     echo "MQTTAddress=${MQTTAddress}";
