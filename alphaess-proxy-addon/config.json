@@ -1,6 +1,6 @@
 {
   "name": "AlphaESS Proxy",
-  "version": "1",
+  "version": "1.0",
   "slug": "alphaess_proxy_addon",
   "description": "AlphaESS Proxy Data collector",
   "url": "https://github.com/230delphi/hassio-addons/tree/main/alphaess-proxy-addon",
