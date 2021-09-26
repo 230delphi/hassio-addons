@@ -4,7 +4,6 @@
   "slug": "alphaess_proxy_addon",
   "description": "AlphaESS Proxy Data collector",
   "url": "https://github.com/230delphi/hassio-addons/tree/main/alphaess-proxy-addon",
-  "image": "230delphi/hassio-alphaess-proxy-{arch}",
   "arch": [
     "armhf",
     "armv7",
