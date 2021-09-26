@@ -1,7 +1,0 @@
-channel: stable
-addons:
-  presence-monitor:
-    repository: 230delphi/hassio-addons
-    target: alphaess-proxy-addon
-#    image: limych/hassio-presence-monitor-{arch}
-    channels: stable
