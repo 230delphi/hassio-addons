@@ -1,0 +1,33 @@
+{
+  "name": "AlphaESS Proxy",
+  "version": "1",
+  "slug": "hello_world",
+  "description": "AlphaESS Proxy Data collector",
+  "arch": [
+    "armhf",
+    "armv7",
+    "aarch64",
+    "amd64",
+    "i386"
+  ],
+  "startup": "application",
+  "boot": "auto",
+  "options": {
+    "MQTTAddress": "tcp://127.0.0.1:1883",
+    "MQTTUser": "myuser",
+    "MQTTPassword": "mypass",
+    "AlphaESSID": "alphaess1",
+    "MQTTTopicBase": "homeassistant/sensor/",
+    "TZLocation": "Europe/Dublin",
+    "ProxyIPPort": "0.0.0.0:17777"
+  },
+  "schema": {
+    "MQTTAddress": "str",
+    "MQTTUser": "str",
+    "MQTTPassword": "str",
+    "AlphaESSID": "str",
+    "MQTTTopicBase": "str",
+    "TZLocation": "str",
+    "ProxyIPPort": "str"
+  }
+}
