@@ -11,8 +11,7 @@ LABEL maintainer="230delphi@gmail.com"
 #    SQUID_LOG_DIR=/var/log/squid \
 #    SQUID_USER=proxy
 
-RUN apk add --no-cache golang
-
+#RUN apk add --no-cache golang
 
 #COPY entrypoint.sh /sbin/entrypoint.sh
 #RUN chmod 755 /sbin/entrypoint.sh
