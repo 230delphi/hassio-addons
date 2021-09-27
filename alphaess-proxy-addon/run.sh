@@ -1,12 +1,21 @@
 #!/usr/bin/with-contenv bashio
-bashio::log.error "Starting run.sh..."
+bashio::log.info "Starting run.sh..."
 git clone https://github.com/230delphi/alphaess-to-mqtt/
 
-bashio::log.error "Building project..."
+bashio::log.info "Building project..."
 cd alphaess-to-mqtt
 go build *.go
 
-bashio::log.error "Creating Config..."
+bashio::log.info "Creating Config..."
+# Create main config
+ProxyIPPort=$(bashio::config 'ProxyIPPort')
+MQTTAddress=$(bashio::config 'MQTTAddress')
+MQTTUser=$(bashio::config 'MQTTUser')
+MQTTPassword=$(bashio::config 'MQTTPassword')
+MQTTTopicBase=$(bashio::config 'MQTTTopicBase')
+AlphaESSID=$(bashio::config 'AlphaESSID')
+TZLocation=$(bashio::config 'TZLocation')
+
 CONFIG="alphaESS-proxy.conf"
 {
     echo "l=${ProxyIPPort}";
@@ -21,4 +30,5 @@ CONFIG="alphaESS-proxy.conf"
 
 # Start Proxy server
 bashio::log.info "Starting Proxy server..."
-alphaESS-proxy -config ${CONFIG} < /dev/null
+./alphaESS-proxy -config ${CONFIG} < /dev/null
+bashio::log.info "Shutdown Proxy server."
