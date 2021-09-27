@@ -15,6 +15,8 @@ MQTTPassword=$(bashio::config 'MQTTPassword')
 MQTTTopicBase=$(bashio::config 'MQTTTopicBase')
 AlphaESSID=$(bashio::config 'AlphaESSID')
 TZLocation=$(bashio::config 'TZLocation')
+LogLevel=$(bashio::config 'LogLevel')
+MSGLogging=$(bashio::config 'MSGLogging')
 
 CONFIG="/data/alphaESS-proxy.conf"
 {
@@ -27,9 +29,11 @@ CONFIG="/data/alphaESS-proxy.conf"
     echo "TZLocation=${TZLocation}";
     echo "proxyConnection=MQTTReadProxyConnection";
     echo "f=/data/proxy.log";
+    echo "MSGLogging=${MSGLogging}";
+    echo "v=${LogLevel}"
 } > "${CONFIG}"
 
 # Start Proxy server
 bashio::log.info "Starting Proxy server..."
-./alphaESS-proxy -config /data/${CONFIG} < /dev/null
+./alphaESS-proxy -config ${CONFIG} < /dev/null
 bashio::log.info "Shutdown Proxy server."

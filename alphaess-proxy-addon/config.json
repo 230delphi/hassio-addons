@@ -20,7 +20,9 @@
     "AlphaESSID": "alphaess1",
     "MQTTTopicBase": "homeassistant/sensor/",
     "TZLocation": "Europe/Dublin",
-    "ProxyIPPort": "0.0.0.0:27777"
+    "ProxyIPPort": "0.0.0.0:27777",
+    "MSGLogging": "GenericRQ,CommandIndexRQ,CommandRQ,ConfigRS,StatusRQ",
+    "LogLevel": "0"
   },
   "schema": {
     "MQTTAddress": "str",
@@ -29,7 +31,9 @@
     "AlphaESSID": "str",
     "MQTTTopicBase": "str",
     "TZLocation": "str",
-    "ProxyIPPort": "str"
+    "ProxyIPPort": "str",
+    "MSGLogging": "str",
+    "LogLevel": "str"
   },
   "ports": {
     "27777/tcp": 27777
