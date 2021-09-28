@@ -18,26 +18,26 @@
   "services": ["mqtt:need"],
   "apparmor": true,
   "options": {
-    "MQTTAddress": "tcp://127.0.0.1:1883",
-    "MQTTUser": "myuser",
-    "MQTTPassword": "mypass",
     "AlphaESSID": "alphaess1",
     "MQTTTopicBase": "homeassistant/sensor/",
     "TZLocation": "Europe/Dublin",
     "ProxyIPPort": "0.0.0.0:27777",
     "MSGLogging": "GenericRQ,CommandIndexRQ,CommandRQ,ConfigRS,StatusRQ",
-    "LogLevel": "0"
+    "LogLevel": "0",
+    "MQTTAddress": "To use external MQTT, set address pattern: tcp://127.0.0.1:1883",
+    "MQTTUser": "ExternalMQTTUserName",
+    "MQTTPassword": "ExternalMQTTPassword"
   },
   "schema": {
-    "MQTTAddress": "str",
-    "MQTTUser": "str",
-    "MQTTPassword": "str",
     "AlphaESSID": "str",
     "MQTTTopicBase": "str",
     "TZLocation": "str",
     "ProxyIPPort": "str",
     "MSGLogging": "str",
-    "LogLevel": "str"
+    "LogLevel": "str",
+    "MQTTAddress": "str",
+    "MQTTUser": "str",
+    "MQTTPassword": "str"
   },
   "ports": {
     "27777/tcp": 27777

@@ -41,8 +41,10 @@ In this case, you must change the AlphaESS network configuration so that it send
 
 ***TODO***
 
-###Example configuration 
+###Example configuration
+
 #### Transparent Proxy
+
 ```yaml
 MQTTAddress: tcp://127.0.0.1:1883
 MQTTUser: user
