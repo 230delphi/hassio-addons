@@ -1,2 +1,2 @@
 # hassio-addons
-Home Assistant Addon for AlphaESS Proxy
+Various Home Assistant Addons
