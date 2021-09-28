@@ -13,8 +13,8 @@ MQTTUser=$(bashio::config 'MQTTUser')
 MQTTPassword=$(bashio::config 'MQTTPassword')
 
 #tcp://127.0.0.1:1883
-AddressTest=$(echo ${MQTTAddress}|sed "s/tcp:\/\/.*:[0-9]*$/OK/")
-if [ ${AddressTest} = "OK" ]
+AddressTest=$(echo "${MQTTAddress}"|sed "s/tcp:\/\/.*:[0-9]*$/OK/")
+if [ "${AddressTest}" = "OK" ]
 then
   bashio::log.warning "Using External MQTT Address: ${MQTTAddress}"
 else
@@ -33,6 +33,18 @@ TZLocation=$(bashio::config 'TZLocation')
 LogLevel=$(bashio::config 'LogLevel')
 MSGLogging=$(bashio::config 'MSGLogging')
 
+BaseConfig="/data/base.conf"
+if [ -f ${BaseConfig} ]
+then
+        bashio::log.info "Base config already exists: ${BaseConfig}"
+else
+        bashio::log.info "Creating Base config: ${BaseConfig}"
+        {
+            echo "proxyConnection=MQTTReadProxyConnection";
+            echo "f=/data/proxy.log";
+        } > ${BaseConfig}
+fi
+
 CONFIG="/data/alphaESS-proxy.conf"
 {
     echo "l=${ProxyIPPort}";
@@ -42,11 +54,13 @@ CONFIG="/data/alphaESS-proxy.conf"
     echo "MQTTTopicBase=${MQTTTopicBase}";
     echo "AlphaESSID=${AlphaESSID}";
     echo "TZLocation=${TZLocation}";
-    echo "proxyConnection=MQTTReadProxyConnection";
-    echo "f=/data/proxy.log";
     echo "MSGLogging=${MSGLogging}";
     echo "v=${LogLevel}"
 } > "${CONFIG}"
+
+{
+    cat ${BaseConfig}
+} >> "${CONFIG}"
 
 # Start Proxy server
 bashio::log.info "Starting Proxy server..."
