@@ -22,8 +22,8 @@
     "MQTTTopicBase": "homeassistant/sensor/",
     "TZLocation": "Europe/Dublin",
     "ProxyIPPort": "0.0.0.0:27777",
-    "MSGLogging": "GenericRQ,CommandIndexRQ,CommandRQ,ConfigRS,StatusRQ",
-    "LogLevel": "0",
+    "MSGLogging": "",
+    "LogLevel": 0,
     "MQTTAddress": "To use external MQTT, set address pattern: tcp://127.0.0.1:1883",
     "MQTTUser": "ExternalMQTTUserName",
     "MQTTPassword": "ExternalMQTTPassword"
@@ -34,12 +34,16 @@
     "TZLocation": "str",
     "ProxyIPPort": "str",
     "MSGLogging": "str",
-    "LogLevel": "str",
+    "LogLevel": "int(0,2)",
     "MQTTAddress": "str",
     "MQTTUser": "str",
     "MQTTPassword": "str"
   },
   "ports": {
     "27777/tcp": 27777
-  }
+  },
+  "ports_description": {
+    "27777/tcp": "Port to which AlphaESS will be directed either directly (default 7777) or transparently by iptables"
+  },
+  "timeout": 20
 }

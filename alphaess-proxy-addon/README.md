@@ -4,7 +4,8 @@
 Follow these steps to get the add-on installed on your system:
 
 1. Navigate in your Home Assistant frontend to:
-   * **Supervisor** -> **Add-on Store** -> **Repositories** (from : top right of screen).
+   * **Supervisor** -> **Add-on Store** -> **Repositories** 
+     (from : top right of screen).
 2. Add the Repository: *https://github.com/230delphi/hassio-addons*
 3. After the Screen updates, choose ***AlphaESS Proxy*** 
 4. Click ***INSTALL***.

@@ -40,7 +40,10 @@ then
 else
         bashio::log.info "Creating Base config: ${BaseConfig}"
         {
-            echo "proxyConnection=MQTTReadProxyConnection";
+            echo "#MSGLogging=GenericRQ,CommandIndexRQ,CommandRQ,ConfigRS,StatusRQ";
+            echo "#proxyConnection=MQTTReadProxyConnection";
+            echo "proxyConnection=MQTTInjectProxyConnection";
+            echo "stat=0";
             echo "f=/data/proxy.log";
         } > ${BaseConfig}
 fi
