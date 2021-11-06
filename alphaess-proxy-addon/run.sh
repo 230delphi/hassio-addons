@@ -1,16 +1,24 @@
 #!/usr/bin/with-contenv bashio
 bashio::log.info "Starting run.sh..."
+MQTTAddress=$(bashio::config 'MQTTAddress')
+MQTTUser=$(bashio::config 'MQTTUser')
+MQTTPassword=$(bashio::config 'MQTTPassword')
+BUILD_ARCH=`bashio::info.arch`
+
 git clone https://github.com/230delphi/alphaess-to-mqtt/
 
 bashio::log.info "Building project..."
 cd alphaess-to-mqtt
-go build *.go
+if [ "${BUILD_ARCH}" = "aarch64" ]
+then
+  bashio::log.info "Building for GOARCH=arm64 for ${BUILD_ARCH}"
+  env GOARCH=arm64 go build *.go
+else
+  bashio::log.info "Default build options for: ${BUILD_ARCH}"
+  go build *.go
+fi
 
 bashio::log.info "Creating Config..."
-# Create main config
-MQTTAddress=$(bashio::config 'MQTTAddress')
-MQTTUser=$(bashio::config 'MQTTUser')
-MQTTPassword=$(bashio::config 'MQTTPassword')
 
 #tcp://127.0.0.1:1883
 AddressTest=$(echo "${MQTTAddress}"|sed "s/tcp:\/\/.*:[0-9]*$/OK/")
