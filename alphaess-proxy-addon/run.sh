@@ -53,6 +53,7 @@ else
             echo "proxyConnection=MQTTInjectProxyConnection";
             echo "stat=0";
             echo "f=/data/proxy.log";
+            echo "StdOutLogging=true";
         } > ${BaseConfig}
 fi
 
