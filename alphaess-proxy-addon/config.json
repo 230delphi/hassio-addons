@@ -26,7 +26,8 @@
     "LogLevel": 0,
     "MQTTAddress": "To use external MQTT, set address pattern: tcp://127.0.0.1:1883",
     "MQTTUser": "ExternalMQTTUserName",
-    "MQTTPassword": "ExternalMQTTPassword"
+    "MQTTPassword": "ExternalMQTTPassword",
+    "DestinationIpPort": "Only set for direct proxy configuration. default: 52.230.104.147:7777"
   },
   "schema": {
     "AlphaESSID": "str",
@@ -37,7 +38,8 @@
     "LogLevel": "int(0,2)",
     "MQTTAddress": "str",
     "MQTTUser": "str",
-    "MQTTPassword": "str"
+    "MQTTPassword": "str",
+    "DestinationIpPort": "str"
   },
   "ports": {
     "27777/tcp": 27777

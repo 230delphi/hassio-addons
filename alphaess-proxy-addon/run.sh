@@ -40,6 +40,7 @@ AlphaESSID=$(bashio::config 'AlphaESSID')
 TZLocation=$(bashio::config 'TZLocation')
 LogLevel=$(bashio::config 'LogLevel')
 MSGLogging=$(bashio::config 'MSGLogging')
+DestinationIpPort=$(bashio::config "DestinationIpPort")
 
 BaseConfig="/data/base.conf"
 if [ -f ${BaseConfig} ]
@@ -70,6 +71,15 @@ CONFIG="/data/alphaESS-proxy.conf"
     echo "v=${LogLevel}"
 } > "${CONFIG}"
 
+DestinationTest=$(echo "${DestinationIpPort}"|sed "s/[0-9]*.[0-9]*.[0-9]*.[0-9]*:[0-9]*$/OK/")
+if [ "${DestinationTest}" = "OK" ]
+then
+  bashio::log.info "Setting proxy destination: ${DestinationIpPort}"
+  echo "p=${DestinationIpPort}" >> "${CONFIG}"
+else
+  bashio::log.info "Configured as routing proxy."
+fi
+
 {
     cat ${BaseConfig}
 } >> "${CONFIG}"
@@ -77,4 +87,4 @@ CONFIG="/data/alphaESS-proxy.conf"
 # Start Proxy server
 bashio::log.info "Starting Proxy server..."
 ./alphaESS-proxy -config ${CONFIG} < /dev/null
-bashio::log.info "Shutdown Proxy server."
+bashio::log.info "Proxy server terminated."
