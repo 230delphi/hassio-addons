@@ -2,6 +2,7 @@
   "name": "AlphaESS Proxy",
   "version": "1.0",
   "slug": "alphaess_proxy_addon",
+  "init": false,
   "description": "A proxy server to intercept and collect data from your AlphaESS Solar System.",
   "url": "https://github.com/230delphi/hassio-addons/tree/main/alphaess-proxy-addon",
   "arch": [
