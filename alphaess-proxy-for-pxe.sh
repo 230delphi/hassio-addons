@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 source <(curl -s https://raw.githubusercontent.com/tteck/Proxmox/main/misc/build.func)
-# Copyright (c) 2021-2024 tteck
-# Author: tteck (tteckster)
+# Original Copyright (c) 2021-2024 tteck
+# Orginal Author: tteck (tteckster)
 # License: MIT
 # https://github.com/tteck/Proxmox/raw/main/LICENSE
+# alpha script 230delphi
+# to run:
+# bash -c "$(wget -qLO - https://raw.githubusercontent.com/230delphi/hassio-addons/refs/heads/main/alphaess-proxy-for-pxe.sh)"
 
 function header_info {
   clear
@@ -24,7 +27,7 @@ echo -e "Loading..."
 APP="AlphaESS Proxy"
 var_disk="4"
 var_cpu="1"
-var_ram="512"
+var_ram="1024"
 var_os="debian"
 var_version="12"
 variables
